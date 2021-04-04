@@ -39,7 +39,7 @@ def get_departures(vazi_od, dan_u_nedelji, linija):
         parse_departures(departures_from, smer_b)
     except Exception as ex:
         logger.warning(f'Greska u citanju linije {linija} {dan_u_nedelji}')
-    if instanceof(linija, str):
+    if isinstance(linija, str):
         if linija.endswith('.'):
             linija = linija[:-1]
         linija = int(linija)
