@@ -11,7 +11,7 @@ def get_all_bus_lines():
     soup = BeautifulSoup(r.content, 'html.parser')
     vazi_od = soup.find('select', {'id': 'vaziod'}).option['value']
     lines = []
-    for linija in [68, 69, 71, 72, 73, 74, 76, 77, 78, 79, 81, 84]:
+    for linija in [68, 69, 71, 72, 73, 74, 76, 77, '78.', '79.', '81.', '84.']:
         lines.append(get_departures(vazi_od, 'R', linija))
         lines.append(get_departures(vazi_od, 'S', linija))
         lines.append(get_departures(vazi_od, 'N', linija))
@@ -38,7 +38,7 @@ def get_departures(vazi_od, dan_u_nedelji, linija):
         parse_departures(departures_to, smer_a)
         parse_departures(departures_from, smer_b)
     except Exception as ex:
-        logger.warn(f'Greska u citanju linije {linija} {dan_u_nedelji}')
+        logger.warning(f'Greska u citanju linije {linija} {dan_u_nedelji}')
     return {'line': linija, 'day': dan_u_nedelji, 'from': departures_from, 'to': departures_to}
 
 
@@ -53,3 +53,7 @@ def parse_departures(dep_list, contents):
                 dep_list.append({'h': sati, 'm': minuti, 't': oznaka})
             if m.name == 'br':
                 break
+
+
+if __name__ == '__main__':
+    print(get_departures('2021-04-01', 'R', '81.'))
