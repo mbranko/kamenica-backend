@@ -1,3 +1,4 @@
+import datetime
 import logging
 from bs4 import BeautifulSoup
 import requests
@@ -15,7 +16,8 @@ def get_all_bus_lines():
         lines.append(get_departures(vazi_od, 'R', linija))
         lines.append(get_departures(vazi_od, 'S', linija))
         lines.append(get_departures(vazi_od, 'N', linija))
-    return(lines)
+    datum = datetime.datetime.strptime(vazi_od, '%Y-%m-%d')
+    return {'date': datum, 'lines': lines }
 
 
 def get_bus_lines_for_day(vazi_od, dan_u_nedelji):
@@ -61,3 +63,4 @@ def parse_departures(dep_list, contents):
 
 if __name__ == '__main__':
     print(get_departures('2021-04-01', 'R', '81.'))
+    print(get_all_bus_lines())
