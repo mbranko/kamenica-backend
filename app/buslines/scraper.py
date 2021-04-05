@@ -56,7 +56,7 @@ def parse_departures(dep_list, contents):
             if m.name == 'sup':
                 minuti = m.find('span').next_element
                 oznaka = m.find('span').next_element.next_element.string
-                dep_list.append({'h': sati, 'm': minuti, 't': oznaka})
+                dep_list.append({'h': int(sati), 'm': int(minuti), 't': oznaka})
             if m.name == 'br':
                 break
 
