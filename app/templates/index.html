@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block page_title %}Kamenica.info{% endblock %}
+
+{% block content %}
+<p>&nbsp;</p>
+<a name="pocetak"></a>
+<h3>Aplikacija za javni prevoz</h3>
+<p>
+  Aplikacija Kamenica.info je namenjena za prikaz ažurnih informacija o autobuskim linijama koje povezuju Kamenicu i
+  Novi Sad. Prikazuju se informacije za tekući dan, na osnovu reda vožnje koji se nalazi na sajtu
+  <a href="http://gspns.rs/">GSP Novi Sad</a>. Moguće je uključiti podsetnik koji će se prikazati 15 minuta pre
+  polaska autobusa sa svoje početne stanice.
+</p>
+<div class="row">
+  <div class="col-sm">
+    <img src="{% static 'img/1242x2688bb.png' %}" height="400"/>
+    <img src="{% static 'img/1242x2688bb-2.png' %}" height="400"/>
+    <img src="{% static 'img/1242x2688bb-3.png' %}" height="400"/>
+  </div>
+</div>
+<p>&nbsp;</p>
+<a name="cena"></a>
+<h3>Cena</h3>
+<p>Aplikacija je besplatna.</p>
+{% endblock %}

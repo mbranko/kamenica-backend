@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Kamenica.info</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block page_title %}Kamenica.info privacy{% endblock %}
+
+{% block content %}
+
+<p>&nbsp;</p>
+{% if language == "en" %}
+<h3>Privacy</h3>
+<p>This application collects no data about its users.</p>
+{% else %}
+<h3>Privatnost</h3>
+<p>Ova aplikacija ne prikuplja podatke o svojim korisnicima.</p>
+{% endif %}
+
+{% endblock %}

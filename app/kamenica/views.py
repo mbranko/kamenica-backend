@@ -1,6 +1,12 @@
+from django.shortcuts import render
+from django.conf import settings
+
+
 def index(request):
-    pass
+    print(settings.STATIC_URL)
+    print(settings.STATIC_ROOT)
+    return render(request, template_name='index.html', content_type='text/html')
 
 
 def privacy(request, language):
-    pass
+    return render(request, template_name='privacy.html', context={'language': language}, content_type='text/html')

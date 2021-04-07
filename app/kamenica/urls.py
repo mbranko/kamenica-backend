@@ -6,6 +6,6 @@ from .views import index, privacy
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', index),
-    path('/privacy/<str:language>/', privacy),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('privacy/<str:language>/', privacy),
+    path('', index),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
