@@ -3,8 +3,6 @@ from django.conf import settings
 
 
 def index(request):
-    print(settings.STATIC_URL)
-    print(settings.STATIC_ROOT)
     return render(request, template_name='index.html', content_type='text/html')
 
 
